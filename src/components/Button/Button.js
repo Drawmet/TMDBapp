@@ -7,6 +7,12 @@ const styles = theme => ({
     border: '1px solid transparent',
     borderRadius: '.25em',
     outline: 'none',
+    padding: '.5em 1em',
+    margin: '1em',
+    '&:hover': {
+      transform: 'translateY(-1px)',
+      boxShadow: '0 2px 2px 0 rgba(0,0,0,.24)',
+    },
   },
   primary: {
     background: theme.colors.primary,
@@ -60,11 +66,12 @@ const styles = theme => ({
   },
 });
 
-const Button = ({ classes, children, color, outline }) => (
+const Button = ({ classes, children, color, outline, onClick }) => (
   <button
     className={
       outline ? `${classes.outline[color]}` : `${classes.btn} ${classes[color]}`
     }
+    onClick={onClick}
   >
     {children}
   </button>

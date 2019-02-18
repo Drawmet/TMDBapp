@@ -4,10 +4,11 @@ import { compose, lifecycle } from 'recompose';
 import Category from '../components/Category';
 
 import { getMoviesAction } from '../store/actions';
-import { categories } from '../constants';
+import { categories, path } from '../constants';
 
 const mapStateToProps = state => ({
   title: categories.POPULAR_MOVIES,
+  type: path.MOVIES,
   data: state.movies.data,
   page: state.movies.page,
 });

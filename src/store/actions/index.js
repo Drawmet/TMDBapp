@@ -1,4 +1,5 @@
 import { actionTypes } from '../../constants';
+import { path } from '../../constants';
 
 export const getMoviesAction = (filter = 'popular', page = '1') => ({
   type: actionTypes.ACTION_GET_MOVIES_REQUEST,
@@ -33,11 +34,18 @@ export const getDocumentaryAction = (
   payload: {
     filter,
     page,
-    genreId,
   },
 });
 
 export const getGenresAction = () => ({
   type: actionTypes.ACTION_GET_GENRES_REQUEST,
   payload: {},
+});
+
+export const getDetaildByIdAction = (type = path.MOVIES, id) => ({
+  type: actionTypes.ACTION_GET_DETAILS_BY_ID_REQUEST,
+  payload: {
+    type,
+    id,
+  },
 });

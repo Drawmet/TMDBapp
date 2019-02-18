@@ -13,7 +13,7 @@ const styles = {
 };
 
 const Img = ({ alt, className, classes, src, onClick, size }) => (
-  <div className={classes.container || className} onClick={onClick}>
+  <div className={className || classes.container} onClick={onClick}>
     <img src={src} alt={alt} className={`${classes.img} ${size}`} />
   </div>
 );

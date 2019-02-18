@@ -16,6 +16,16 @@ const reducer = (state = initialState, action) => {
         ...state,
         processed: false,
       };
+    case actionTypes.ACTION_GET_DETAILS_BY_ID_REQUEST:
+      return {
+        ...state,
+        processed: true,
+      };
+    case actionTypes.ACTION_GET_DETAILS_BY_ID_SUCCESS:
+      return {
+        ...state,
+        processed: false,
+      };
     default:
       return state;
   }

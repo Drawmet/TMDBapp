@@ -4,10 +4,11 @@ import { compose, lifecycle } from 'recompose';
 import Category from '../components/Category';
 
 import { getDocumentaryAction } from '../store/actions';
-import { categories } from '../constants';
+import { categories, path } from '../constants';
 
 const mapStateToProps = state => ({
   title: categories.DOCUMENTARY,
+  type: path.MOVIES,
   data: state.documentary.data,
   page: state.documentary.page,
 });

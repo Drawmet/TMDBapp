@@ -4,10 +4,11 @@ import { compose, lifecycle } from 'recompose';
 import Category from '../components/Category';
 
 import { getSeriesAction } from '../store/actions';
-import { categories } from '../constants';
+import { categories, path } from '../constants';
 
 const mapStateToProps = state => ({
   title: categories.POPULAR_SERIES,
+  type: path.SERIES,
   data: state.series.data,
   page: state.series.page,
 });

@@ -129,7 +129,29 @@ const dataMiddleware = store => next => action => {
             },
           })
         );
-
+    case actionTypes.ACTION_GET_DETAILS_BY_ID_REQUEST:
+      next(action);
+      return RESTApi(
+        `/${action.payload.type}/${action.payload.id}`,
+        `&language=${language.EN}`
+      )
+        .then(data =>
+          next({
+            type: actionTypes.ACTION_GET_DETAILS_BY_ID_SUCCESS,
+            payload: {
+              type: action.payload.type,
+              data: data,
+            },
+          })
+        )
+        .catch(error =>
+          next({
+            type: actionTypes.ACTION_GET_DETAILS_BY_ID_FAILURE,
+            payload: {
+              error,
+            },
+          })
+        );
     default:
       return next(action);
   }

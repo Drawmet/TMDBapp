@@ -1,6 +1,7 @@
 import React from 'react';
 import injectStyles from 'react-jss';
 import { compose, withHandlers, withState } from 'recompose';
+import { Link } from 'react-router-dom';
 
 import Arrow from '../Icons';
 import Card from '../Card';
@@ -49,8 +50,9 @@ const styles = theme => ({
 const Category = ({
   classes,
   data,
-  title,
   left,
+  type,
+  title,
   handleRef,
   handlePrev,
   handleNext,
@@ -66,12 +68,9 @@ const Category = ({
     <div className={classes.category}>
       <div className={classes.categoryInner} ref={handleRef} style={{ left }}>
         {data.map(item => (
-          <Card
-            className={classes.card}
-            key={`movie_${item.id}`}
-            title={item.title}
-            src={item.src}
-          />
+          <Link to={`/${type}/${item.id}`} key={`${type}_${item.id}`}>
+            <Card className={classes.card} title={item.title} src={item.src} />
+          </Link>
         ))}
       </div>
     </div>
