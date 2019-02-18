@@ -1,0 +1,18 @@
+{
+  "extends": [
+    "metarhia",
+    "plugin:react/recommended",
+    "plugin:prettier/recommended",
+    "prettier/react"
+  ],
+  "plugins": ["react", "prettier"],
+  "parser": "babel-eslint",
+  "rules": {
+    "object-shorthand": [0, "always"],
+    "linebreak-style": 0
+  },
+  "env": {
+    "browser": true,
+    "jest": true
+  }
+}
