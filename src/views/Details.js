@@ -10,6 +10,7 @@ const styles = theme => ({
   container: {
     ...theme.row,
     justifyContent: 'center',
+    flexWrap: 'wrap',
   },
   details: {
     ...theme.breakpoints.sm,

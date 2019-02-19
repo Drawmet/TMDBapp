@@ -27,8 +27,6 @@ const styles = {
   },
 };
 
-const proxy = 'https://cors-anywhere.herokuapp.com/';
-
 const manifestUri =
   'https://storage.googleapis.com/shaka-demo-assets/sintel/dash.mpd';
 
