@@ -1,5 +1,6 @@
 import React from 'react';
 import injectStyles from 'react-jss';
+import PropTypes from 'prop-types';
 
 import { H3 } from '../Title';
 import Img from '../Img/';
@@ -26,5 +27,13 @@ const Card = ({ classes, className, description, title, src }) => (
     <div className={classes.description}>{description}</div>
   </div>
 );
+
+Card.propTypes = {
+  classes: PropTypes.object,
+  className: PropTypes.string,
+  description: PropTypes.string,
+  title: PropTypes.string,
+  src: PropTypes.string,
+};
 
 export default injectStyles(styles)(Card);

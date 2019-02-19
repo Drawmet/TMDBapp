@@ -2,6 +2,7 @@ import React from 'react';
 import { compose } from 'recompose';
 import { Link, withRouter } from 'react-router-dom';
 import injectStyles from 'react-jss';
+import PropTypes from 'prop-types';
 
 const styles = theme => ({
   header: {
@@ -39,6 +40,12 @@ const Header = ({ classes, children, match: { url } }) => (
     {children}
   </div>
 );
+
+Header.propTypes = {
+  classes: PropTypes.object,
+  children: PropTypes.node,
+  match: PropTypes.object,
+};
 
 export default compose(
   injectStyles(styles),

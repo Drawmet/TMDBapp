@@ -1,5 +1,6 @@
 import React from 'react';
 import injectStyles from 'react-jss';
+import PropTypes from 'prop-types';
 
 const styles = theme => ({
   btn: {
@@ -77,5 +78,13 @@ const Button = ({ classes, children, color, outline, onClick }) => (
     {children}
   </button>
 );
+
+Button.propTypes = {
+  classes: PropTypes.object,
+  children: PropTypes.node,
+  color: PropTypes.string,
+  outline: PropTypes.bool,
+  onClick: PropTypes.func,
+};
 
 export default injectStyles(styles)(Button);

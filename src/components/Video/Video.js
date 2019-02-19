@@ -3,6 +3,7 @@ import { compose, lifecycle } from 'recompose';
 import shaka from 'shaka-player';
 import injectStyles from 'react-jss';
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 const styles = {
   container: {
@@ -92,6 +93,11 @@ const Video = ({ classes, match: { url } }) => (
     />
   </div>
 );
+
+Video.propTypes = {
+  classes: PropTypes.object,
+  match: PropTypes.object,
+};
 
 export default compose(
   lifecycle({

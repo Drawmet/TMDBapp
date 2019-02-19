@@ -2,6 +2,7 @@ import React from 'react';
 import injectStyles from 'react-jss';
 import { compose, withHandlers, withState, lifecycle } from 'recompose';
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 import Arrow from '../Icons';
 import Card from '../Card';
@@ -90,6 +91,17 @@ const Category = ({
     />
   </div>
 );
+
+Category.propTypes = {
+  classes: PropTypes.object,
+  data: PropTypes.array,
+  left: PropTypes.number,
+  type: PropTypes.string,
+  title: PropTypes.string,
+  handleRef: PropTypes.func,
+  handlePrev: PropTypes.func,
+  handleNext: PropTypes.func,
+};
 
 export default compose(
   withState('offset', 'offsetChange', 0),

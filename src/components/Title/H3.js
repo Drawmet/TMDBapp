@@ -1,6 +1,6 @@
 import React from 'react';
-
 import injectStyles from 'react-jss';
+import PropTypes from 'prop-types';
 
 const styles = theme => ({
   h3: {
@@ -14,5 +14,10 @@ const styles = theme => ({
 const H3 = ({ children, classes }) => (
   <h3 className={classes.h3}>{children}</h3>
 );
+
+H3.propTypes = {
+  classes: PropTypes.object,
+  children: PropTypes.node,
+};
 
 export default injectStyles(styles)(H3);

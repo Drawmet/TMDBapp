@@ -1,5 +1,6 @@
 import React from 'react';
 import injectStyles from 'react-jss';
+import PropTypes from 'prop-types';
 
 const styles = theme => ({
   input: {
@@ -20,5 +21,13 @@ const Input = ({ classes, type, placeholder, value, onChange }) => (
     onChange={event => onChange(event.target.value)}
   />
 );
+
+Input.propTypes = {
+  classes: PropTypes.object,
+  type: PropTypes.string,
+  placeholder: PropTypes.string,
+  value: PropTypes.string,
+  onChange: PropTypes.func,
+};
 
 export default injectStyles(styles)(Input);
