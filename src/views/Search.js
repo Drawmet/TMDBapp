@@ -21,7 +21,7 @@ const Search = ({ classes, value, onChange }) => (
         onChange={onChange}
         value={value}
       />
-      <SearchCategory />
+      {value && <SearchCategory />}
     </div>
   </div>
 );

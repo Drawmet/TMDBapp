@@ -30,15 +30,18 @@ const reducer = (state = initialState, action) => {
           ],
         };
       }
-      return {
-        ...state,
-        data: action.payload.data.map(item => ({
-          ...item,
-          src: item['poster_path']
-            ? `${IMG_RESOURCE}${item['poster_path']}`
-            : PLACEHOLDER,
-        })),
-      };
+      if (action.payload.page === 1) {
+        return {
+          ...state,
+          data: action.payload.data.map(item => ({
+            ...item,
+            src: item['poster_path']
+              ? `${IMG_RESOURCE}${item['poster_path']}`
+              : PLACEHOLDER,
+          })),
+        };
+      }
+      return state;
     default:
       return state;
   }

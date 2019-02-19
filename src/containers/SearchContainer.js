@@ -4,7 +4,7 @@ import Search from '../views/Search';
 import { setSearchAction } from '../store/actions';
 
 const mapStateToProps = state => ({
-  ...state.search.value,
+  value: state.search.value,
 });
 
 const mapDispatchToProps = dispatch => ({

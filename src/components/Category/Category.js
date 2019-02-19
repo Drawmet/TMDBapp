@@ -1,6 +1,6 @@
 import React from 'react';
 import injectStyles from 'react-jss';
-import { compose, withHandlers, withState } from 'recompose';
+import { compose, withHandlers, withState, lifecycle } from 'recompose';
 import { Link } from 'react-router-dom';
 
 import Arrow from '../Icons';
@@ -121,9 +121,24 @@ export default compose(
           getData(page + 1);
         }
 
+        if (
+          left !== '0' &&
+          left - offset < -carouselInner.offsetWidth + offset
+        ) {
+          return leftChange(-carouselInner.offsetWidth + offset);
+        }
+
         leftChange(left - offset + 180);
       },
     };
+  }),
+  lifecycle({
+    shouldComponentUpdate(nextProps) {
+      if (nextProps.value !== this.props.value) {
+        nextProps.leftChange(0);
+      }
+      return true;
+    },
   }),
   injectStyles(styles)
 )(Category);
