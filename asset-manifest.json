@@ -1,13 +1,13 @@
 {
   "main.css": "/tmdb-app/static/css/main.0a7dd405.chunk.css",
-  "main.js": "/tmdb-app/static/js/main.1364539a.chunk.js",
-  "main.js.map": "/tmdb-app/static/js/main.1364539a.chunk.js.map",
+  "main.js": "/tmdb-app/static/js/main.bef8c48e.chunk.js",
+  "main.js.map": "/tmdb-app/static/js/main.bef8c48e.chunk.js.map",
   "runtime~main.js": "/tmdb-app/static/js/runtime~main.a22abbad.js",
   "runtime~main.js.map": "/tmdb-app/static/js/runtime~main.a22abbad.js.map",
   "static/js/2.36912be8.chunk.js": "/tmdb-app/static/js/2.36912be8.chunk.js",
   "static/js/2.36912be8.chunk.js.map": "/tmdb-app/static/js/2.36912be8.chunk.js.map",
   "index.html": "/tmdb-app/index.html",
-  "precache-manifest.f5e0b20fcb43c7e20072b59a1eb8ef95.js": "/tmdb-app/precache-manifest.f5e0b20fcb43c7e20072b59a1eb8ef95.js",
+  "precache-manifest.78c9d2d18f7a30182385877d2257530e.js": "/tmdb-app/precache-manifest.78c9d2d18f7a30182385877d2257530e.js",
   "service-worker.js": "/tmdb-app/service-worker.js",
   "static/css/main.0a7dd405.chunk.css.map": "/tmdb-app/static/css/main.0a7dd405.chunk.css.map"
 }
