@@ -12,9 +12,8 @@ const styles = {
     height: '100%',
   },
   video: {
-    width: '80%',
-    height: '70%',
-    padding: '1em 10%',
+    width: '100%',
+    padding: '1em 0',
   },
   link: {
     position: 'absolute',
