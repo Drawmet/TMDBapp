@@ -1,11 +1,11 @@
 self.__precacheManifest = [
   {
-    "revision": "ddb9be6f88a8aa500bd3",
+    "revision": "c2622d53b8ab7f1c8d55",
     "url": "/tmdb-app/static/css/main.0a7dd405.chunk.css"
   },
   {
-    "revision": "ddb9be6f88a8aa500bd3",
-    "url": "/tmdb-app/static/js/main.ddb9be6f.chunk.js"
+    "revision": "c2622d53b8ab7f1c8d55",
+    "url": "/tmdb-app/static/js/main.c2622d53.chunk.js"
   },
   {
     "revision": "a22abbad16ad957678ed",
@@ -16,7 +16,7 @@ self.__precacheManifest = [
     "url": "/tmdb-app/static/js/2.36912be8.chunk.js"
   },
   {
-    "revision": "b44dee8d63d89ad99fc9e96bcf5e3d9c",
+    "revision": "ece6892f7f19b064635f97e68f76812d",
     "url": "/tmdb-app/index.html"
   }
 ];
