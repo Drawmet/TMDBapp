@@ -2,7 +2,7 @@
   "name": "imdb-app",
   "version": "0.1.0",
   "private": true,
-  "homepage": "http://drawmet.github.io/tmdb-app",
+  "homepage": "https://drawmet.github.io/tmdb-app/",
   "dependencies": {
     "react": "^16.8.2",
     "react-dom": "^16.8.2",
