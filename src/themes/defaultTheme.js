@@ -1,6 +1,7 @@
 const defaultTheme = {
   colors: {
     bg: '#fff',
+    header: '#a0a0a0',
     danger: '#db5151',
     info: '#33b5e5',
     primary: '#5173be',

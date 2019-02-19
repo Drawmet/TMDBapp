@@ -4,17 +4,22 @@ import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import MainPage from '../containers/MainPageContainer';
 import DetailsMovie from '../containers/DetailsMovieContainer';
 import DetailsSeries from '../containers/DetailsSeriesContainer';
-import Video from '../components/Video/Video';
+import Video from '../components/Video';
+import Header from '../components/Header';
+import Search from '../containers/SearchContainer';
 
 const Router = ({ children }) => (
   <BrowserRouter>
-    <Switch>
-      <Route exact path="/" component={MainPage} />
-      <Route exact path="/movie/:id" component={DetailsMovie} />
-      <Route exact path="/tv/:id" component={DetailsSeries} />
-      <Route path="/watch/tv/:id" component={Video} />
-      <Route path="/watch/movie/:id" component={Video} />
-    </Switch>
+    <Header>
+      <Switch>
+        <Route exact path="/" component={MainPage} />
+        <Route path="/search" component={Search} />
+        <Route exact path="/movie/:id" component={DetailsMovie} />
+        <Route exact path="/tv/:id" component={DetailsSeries} />
+        <Route path="/watch/tv/:id" component={Video} />
+        <Route path="/watch/movie/:id" component={Video} />
+      </Switch>
+    </Header>
   </BrowserRouter>
 );
 

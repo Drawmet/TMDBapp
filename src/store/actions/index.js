@@ -49,3 +49,19 @@ export const getDetaildByIdAction = (type = path.MOVIES, id) => ({
     id,
   },
 });
+
+export const setSearchAction = (value = '') => ({
+  type: actionTypes.ACTION_SET_SEARCH_VALUE,
+  payload: {
+    value,
+  },
+});
+
+export const getSearchAction = (value = '', filter = 'popular', page = 1) => ({
+  type: actionTypes.ACTION_GET_SEARCH_REQUEST,
+  payload: {
+    value,
+    filter,
+    page,
+  },
+});

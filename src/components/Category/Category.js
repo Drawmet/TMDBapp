@@ -45,6 +45,10 @@ const styles = theme => ({
       fill: theme.colors.primary,
     },
   },
+  link: {
+    color: theme.colors.text,
+    textDecoration: 'none',
+  },
 });
 
 const Category = ({
@@ -68,7 +72,11 @@ const Category = ({
     <div className={classes.category}>
       <div className={classes.categoryInner} ref={handleRef} style={{ left }}>
         {data.map(item => (
-          <Link to={`/${type}/${item.id}`} key={`${type}_${item.id}`}>
+          <Link
+            className={classes.link}
+            to={`/${type}/${item.id}`}
+            key={`${type}_${item.id}`}
+          >
             <Card className={classes.card} title={item.title} src={item.src} />
           </Link>
         ))}

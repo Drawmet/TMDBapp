@@ -1,5 +1,6 @@
 import { RESTApi } from '../api';
 import { actionTypes, genres, language, path } from '../../constants';
+import { getSearchAction } from '../actions';
 
 const dataMiddleware = store => next => action => {
   switch (action.type) {
@@ -147,6 +148,34 @@ const dataMiddleware = store => next => action => {
         .catch(error =>
           next({
             type: actionTypes.ACTION_GET_DETAILS_BY_ID_FAILURE,
+            payload: {
+              error,
+            },
+          })
+        );
+    case actionTypes.ACTION_SET_SEARCH_VALUE:
+      next(action);
+      return store.dispatch(getSearchAction(action.payload.value));
+    case actionTypes.ACTION_GET_SEARCH_REQUEST:
+      next(action);
+      return RESTApi(
+        `/${path.SEARCH}/${path.MOVIES}`,
+        `&query=${action.payload.value}&language=${language.EN}&page=${
+          action.payload.page
+        }`
+      )
+        .then(data =>
+          next({
+            type: actionTypes.ACTION_GET_SEARCH_SUCCESS,
+            payload: {
+              data: data.results,
+              page: data.page,
+            },
+          })
+        )
+        .catch(error =>
+          next({
+            type: actionTypes.ACTION_GET_SEARCH_FAILURE,
             payload: {
               error,
             },

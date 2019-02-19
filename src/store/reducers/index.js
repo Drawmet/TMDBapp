@@ -6,6 +6,7 @@ import genres from './genres';
 import family from './family';
 import movies from './movies';
 import series from './series';
+import search from './search';
 
 export default combineReducers({
   app,
@@ -14,4 +15,5 @@ export default combineReducers({
   family,
   movies,
   series,
+  search,
 });

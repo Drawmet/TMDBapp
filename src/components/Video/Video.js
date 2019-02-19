@@ -1,20 +1,38 @@
 import React from 'react';
 import { compose, lifecycle } from 'recompose';
 import shaka from 'shaka-player';
+import injectStyles from 'react-jss';
+import { Link } from 'react-router-dom';
+
+const styles = {
+  container: {
+    background: '#a0a0a0',
+  },
+  video: {
+    width: '80%',
+    height: '70%',
+    padding: '1em 10%',
+  },
+  link: {
+    position: 'absolute',
+    right: '1em',
+    top: '1em',
+    textDecoration: 'none',
+    fontWeight: '600',
+    fontSize: '2em',
+    color: '#000',
+  },
+};
 
 var manifestUri =
-  'https://storage.googleapis.com/shaka-demo-assets/angel-one/dash.mpd';
+  'https://bitdash-a.akamaihd.net/content/sintel/hls/playlist.m3u8';
 
 function initApp() {
-  // Install built-in polyfills to patch browser incompatibilities.
   shaka.polyfill.installAll();
 
-  // Check to see if the browser supports the basic APIs Shaka needs.
   if (shaka.Player.isBrowserSupported()) {
-    // Everything looks good!
     initPlayer();
   } else {
-    // This browser does not have the minimum set of APIs we need.
     console.error('Browser not supported!');
   }
 }
@@ -22,43 +40,50 @@ function initApp() {
 function initPlayer() {
   // Create a Player instance.
   var video = document.getElementById('video');
-  var player = new shaka.Player(video);
 
-  // Attach player to the window to make it easy to access in the JS console.
+  // shaka.media.ManifestParser.registerParserByExtension("m3u8", shaka.hls.HlsParser);
+  // shaka.media.ManifestParser.registerParserByMime("Application/vnd.apple.mpegurl", shaka.hls.HlsParser);
+  // shaka.media.ManifestParser.registerParserByMime("application/x-mpegURL", shaka.hls.HlsParser);
+
+  var player = new shaka.Player(video);
+  player.configure('manifest.defaultPresentationDelay', 0);
   window.player = player;
 
-  // Listen for error events.
   player.addEventListener('error', onErrorEvent);
 
-  // Try to load a manifest.
-  // This is an asynchronous process.
   player
-    .load('../../assets/vM7nH0Kl.m3u8')
+    .load(manifestUri)
     .then(function() {
-      // This runs if the asynchronous load is successful.
       console.log('The video has now been loaded!');
     })
-    .catch(onError); // onError is executed if the asynchronous load fails.
+    .catch(onError);
 }
 
 function onErrorEvent(event) {
-  // Extract the shaka.util.Error object from the event.
   onError(event.detail);
 }
 
 function onError(error) {
-  // Log the error.
   console.error('Error code', error.code, 'object', error);
 }
 
-const Video = () => (
-  <video
-    id="video"
-    width="640"
-    poster="//shaka-player-demo.appspot.com/assets/poster.jpg"
-    controls
-    autoplay
-  />
+const Video = ({ classes, match: { url } }) => (
+  <div className={classes.container}>
+    <Link
+      className={classes.link}
+      to={`/${url.split('/')[2]}/${url.split('/')[3]}`}
+    >
+      x
+    </Link>
+    <video
+      id="video"
+      className={classes.video}
+      width="80%"
+      poster="//shaka-player-demo.appspot.com/assets/poster.jpg"
+      controls
+      autoPlay
+    />
+  </div>
 );
 
 export default compose(
@@ -66,5 +91,6 @@ export default compose(
     componentDidMount() {
       initApp();
     },
-  })
+  }),
+  injectStyles(styles)
 )(Video);
