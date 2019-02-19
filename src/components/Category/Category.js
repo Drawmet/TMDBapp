@@ -106,7 +106,7 @@ export default compose(
       },
       handlePrev: ({ left, offset, leftChange }) => () => {
         if (left < 0) {
-          leftChange(left + offset - offset / 20);
+          leftChange(left + offset + 25);
         }
         if (left - offset > 0) {
           leftChange(0);
@@ -128,7 +128,7 @@ export default compose(
           return leftChange(-carouselInner.offsetWidth + offset);
         }
 
-        leftChange(left - offset + offset / 20);
+        leftChange(left - offset - 25);
       },
     };
   }),
