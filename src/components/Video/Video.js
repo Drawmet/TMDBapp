@@ -6,7 +6,10 @@ import { Link } from 'react-router-dom';
 
 const styles = {
   container: {
-    background: '#a0a0a0',
+    background: '#000000aa',
+    position: 'fixed',
+    width: '100%',
+    height: '100%',
   },
   video: {
     width: '80%',
@@ -27,7 +30,7 @@ const styles = {
 const proxy = 'https://cors-anywhere.herokuapp.com/';
 
 const manifestUri =
-  'https://bitdash-a.akamaihd.net/content/sintel/hls/playlist.m3u8';
+  'https://storage.googleapis.com/shaka-demo-assets/sintel/dash.mpd';
 
 function initApp() {
   shaka.polyfill.installAll();
@@ -43,7 +46,10 @@ function initPlayer() {
   // Create a Player instance.
   var video = document.getElementById('video');
 
-  // shaka.media.ManifestParser.registerParserByExtension("m3u8", shaka.hls.HlsParser);
+  // shaka.media.ManifestParser.registerParserByExtension(
+  //   'm3u8',
+  //   shaka.hls.HlsParser
+  // );
   // shaka.media.ManifestParser.registerParserByMime("Application/vnd.apple.mpegurl", shaka.hls.HlsParser);
   // shaka.media.ManifestParser.registerParserByMime("application/x-mpegURL", shaka.hls.HlsParser);
 
@@ -54,7 +60,7 @@ function initPlayer() {
   player.addEventListener('error', onErrorEvent);
 
   player
-    .load(proxy + manifestUri)
+    .load(manifestUri)
     .then(function() {
       console.log('The video has now been loaded!');
     })
