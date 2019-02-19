@@ -13,6 +13,7 @@ const styles = {
   },
   video: {
     width: '100%',
+    maxHeight: '100vh',
     padding: '1em 0',
   },
   link: {
@@ -23,6 +24,7 @@ const styles = {
     fontWeight: '600',
     fontSize: '2em',
     color: '#000',
+    zIndex: 5,
   },
 };
 
