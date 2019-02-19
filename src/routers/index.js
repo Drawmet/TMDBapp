@@ -12,7 +12,7 @@ const Router = ({ children }) => (
   <BrowserRouter>
     <Header>
       <Switch>
-        <Route exact path="/" component={MainPage} />
+        <Route exact path="/tmdb-app/" component={MainPage} />
         <Route path="/search" component={Search} />
         <Route exact path="/movie/:id" component={DetailsMovie} />
         <Route exact path="/tv/:id" component={DetailsSeries} />

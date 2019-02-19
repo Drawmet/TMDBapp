@@ -24,7 +24,9 @@ const styles = {
   },
 };
 
-var manifestUri =
+const proxy = 'https://cors-anywhere.herokuapp.com/';
+
+const manifestUri =
   'https://bitdash-a.akamaihd.net/content/sintel/hls/playlist.m3u8';
 
 function initApp() {
@@ -52,7 +54,7 @@ function initPlayer() {
   player.addEventListener('error', onErrorEvent);
 
   player
-    .load(manifestUri)
+    .load(proxy + manifestUri)
     .then(function() {
       console.log('The video has now been loaded!');
     })

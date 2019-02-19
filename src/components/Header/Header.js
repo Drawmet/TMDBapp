@@ -24,8 +24,8 @@ const Header = ({ classes, children, match: { url } }) => (
   <div>
     <header className={classes.header}>
       <Link
-        className={`${classes.link} ${url === '/' && classes.active}`}
-        to="/"
+        className={`${classes.link} ${url === '/tmdb-app/' && classes.active}`}
+        to="/tmdb-app/"
       >
         Home
       </Link>
